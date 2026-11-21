@@ -69,8 +69,8 @@ def test_summarize_windows():
     buckets = [
         (ts(13, 23, 45), 1.0),
         (ts(19, 7, 0), 0.32),      # 7 days ago
-        (ts(20, 11, 45), 0.08),    # within 24h, latest
         (ts(20, 11, 30), 0.04),
+        (ts(20, 11, 45), 0.08),    # newest
     ]
     s = summarize(buckets, now, day_start)
     assert s["today"] == 0.12

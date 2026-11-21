@@ -167,7 +167,7 @@ class SaladGpuDemandSensor(
 
     _attr_has_entity_name = True
     _attr_translation_key = "gpu_demand"
-    _attr_icon = "mdi:gpu"
+    _attr_icon = "mdi:expansion-card"
 
     def __init__(self, coordinator: SaladDataUpdateCoordinator) -> None:
         """Initialize the sensor."""

@@ -1,0 +1,68 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Salad Tracker",
+        "description": "Paste the `auth` cookie value from a logged-in app.salad.com session: DevTools \u2192 Application \u2192 Cookies \u2192 `app-api.salad.com` \u2192 copy the `auth` cookie.",
+        "data": {
+          "token": "Auth cookie",
+          "update_interval_min": "Update interval (minutes)",
+          "enable_gpu_demand": "Include GPU demand data"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Re-authenticate Salad",
+        "description": "The Salad auth cookie has expired. Grab a fresh `auth` cookie from a logged-in app.salad.com session and paste it here.",
+        "data": {
+          "token": "Auth cookie"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Salad rejected the auth cookie \u2014 grab a fresh `auth` cookie value.",
+      "cannot_connect": "Could not reach app-api.salad.com."
+    },
+    "abort": {
+      "reauth_successful": "Re-authentication was successful."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Salad Tracker options",
+        "data": {
+          "update_interval_min": "Update interval (minutes)",
+          "enable_gpu_demand": "Include GPU demand data"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "balance": {
+        "name": "Balance"
+      },
+      "lifetime_balance": {
+        "name": "Lifetime balance"
+      },
+      "earnings_today": {
+        "name": "Earnings today"
+      },
+      "earnings_24h": {
+        "name": "Earnings last 24 hours"
+      },
+      "earnings_7d": {
+        "name": "Earnings last 7 days"
+      },
+      "earning_rate": {
+        "name": "Earning rate"
+      },
+      "last_earning": {
+        "name": "Last earning"
+      },
+      "gpu_demand": {
+        "name": "GPU demand"
+      }
+    }
+  }
+}

@@ -58,7 +58,7 @@ SENSORS: tuple[SaladSensorEntityDescription, ...] = (
         translation_key="earnings_today",
         native_unit_of_measurement="USD",
         device_class=SensorDeviceClass.MONETARY,
-        state_class=SensorStateClass.TOTAL_INCREASING,
+        state_class=SensorStateClass.TOTAL,
         suggested_display_precision=3,
         value_fn=lambda data: data.earnings_today,
     ),
@@ -151,7 +151,7 @@ class SaladSensor(
     def extra_state_attributes(self) -> dict[str, Any]:
         """Attach sync metadata."""
         attributes: dict[str, Any] = {}
-        synced = self.coordinator.last_update_success_time
+        synced = self.coordinator.last_success_time
         if synced is not None:
             attributes["last_synced"] = dt_util.as_local(synced).isoformat()
         data = self.coordinator.data

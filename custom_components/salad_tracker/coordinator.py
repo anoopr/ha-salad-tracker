@@ -75,6 +75,7 @@ class SaladDataUpdateCoordinator(DataUpdateCoordinator[SaladUpdateData]):
         self.enable_gpu_demand = entry.options.get(
             CONF_ENABLE_GPU_DEMAND, DEFAULT_ENABLE_GPU_DEMAND
         )
+        self.last_success_time: datetime | None = None
 
     async def _async_update_data(self) -> SaladUpdateData:
         """Fetch all endpoints in parallel and aggregate."""
@@ -124,4 +125,5 @@ class SaladDataUpdateCoordinator(DataUpdateCoordinator[SaladUpdateData]):
         if self.enable_gpu_demand and len(results) > 2:
             data.gpu_demand = parse_gpu_demand(results[2])
 
+        self.last_success_time = dt_util.now()
         return data
